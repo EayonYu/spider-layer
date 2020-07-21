@@ -1,4 +1,4 @@
-image: "python:3.7"
+image: "10.124.106.121:5000/codebuild/iot4_gitlab:latest"
 
 stages:
   - pre_build
@@ -25,8 +25,6 @@ pre_build:write_access:
 deploy_private:
   stage: deploy
   before_script:
-    - pip install wheel
-    - pip install twine
     - python setup.py bdist_wheel
   script:
     - twine upload --username hongkang2 --password He8JGUiK dist/* --repository-url http://52.81.42.99:31187/
@@ -51,9 +49,6 @@ deploy:layer:
     REGION: "$IOT4_AWS_DEFAULT_REGION"
     SERVICE_NAME: $CI_PROJECT_NAME
   before_script:
-    - apt-get update
-    - apt-get install npm -y
-    - apt-get install zip -y
     - rm -rf ~/.aws/ && mkdir ~/.aws && cp -r credentials config ~/.aws/
     - npm i serverless-plugin-aws-cn-principal -D
     - echo $stage
