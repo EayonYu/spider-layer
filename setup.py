@@ -21,7 +21,7 @@ else:
 
 if version:
     setup(
-        name='spider-layer',
+        name='spider_layer',
         version=version,
         description='layer for spider',
         long_description='layer for spider',
