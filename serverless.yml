@@ -1,4 +1,4 @@
-service: spider-layer-${opt:tag}
+service: gaia-spider-layer-${opt:tag}
 
 plugins:
  - serverless-plugin-aws-cn-principal
@@ -9,7 +9,7 @@ provider:
   
 layers:
   spider-layer:
-    name: spider_layer_${opt:tag}_${opt:stage,self:provider.stage}
+    name: gaia_spider_layer_${opt:tag}_${opt:stage,self:provider.stage}
     package:
       artifact: python.zip
 
@@ -21,4 +21,4 @@ resources:
   Outputs:
     layerName:
       Value:
-        Ref: spider-layer-${opt:tag}
+        Ref: gaia-spider-layer-${opt:tag}
