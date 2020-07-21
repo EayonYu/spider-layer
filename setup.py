@@ -34,7 +34,7 @@ if version:
         zip_safe=False,
         install_requires=install_requires,
         dependency_links=[
-            "http://10.124.106.125:9011/simple"
+            "http://52.81.42.99:31187/simple"
         ],
         python_requires='==3.7',
         classifiers=[
