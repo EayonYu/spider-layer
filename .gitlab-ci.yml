@@ -9,9 +9,9 @@ pre_build:write_access:
   stage: pre_build
   before_script:
     - rm -rf ~/.aws/ && mkdir -p ~/.aws/
-    - echo [default] >> ~/.aws/config
+    - echo [profile cn-iot4] >> ~/.aws/config
     - echo region = $IOT4_AWS_DEFAULT_REGION >> ~/.aws/config
-    - echo [default] >> ~/.aws/credentials
+    - echo [cn-iot4] >> ~/.aws/credentials
     - echo aws_access_key_id = ${IOT4_AWS_ACCESS_KEY_ID} >> ~/.aws/credentials
     - echo aws_secret_access_key = ${IOT4_AWS_SECRET_ACCESS_KEY} >> ~/.aws/credentials
   script:
@@ -43,7 +43,7 @@ deploy_after:
     - npm i serverless-plugin-aws-cn-principal -D
     - rm python.zip || echo error
     - zip -r python.zip python
-    - echo serverless deploy --region ${REGION} --stage ${STAGE} --tag ${CI_COMMIT_TAG}
-    - serverless deploy --region ${REGION} --stage ${STAGE} --tag ${CI_COMMIT_TAG}
+    - echo serverless deploy --region ${REGION} --stage ${STAGE} --tag ${CI_COMMIT_TAG} --aws-profile cn-iot4
+    - serverless deploy --region ${REGION} --stage ${STAGE} --tag ${CI_COMMIT_TAG} --aws-profile cn-iot4
   only:
     - tags
