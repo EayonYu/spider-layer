@@ -7,7 +7,7 @@ provider:
   runtime: python3.7
   
 layers:
-  spider-layer:
+  gaiaspiderlayer:
     name: gaia_spider_layer_${opt:tag}_${opt:stage,self:provider.stage}
     package:
       artifact: python.zip
@@ -20,4 +20,4 @@ resources:
   Outputs:
     layerName:
       Value:
-        Ref: gaia-spider-layer-${opt:tag}
+        Ref: GaiaspiderlayerLambdaLayer
