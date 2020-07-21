@@ -32,10 +32,7 @@ if version:
         packages=['layer'],
         url='http://10.124.106.120:18080/cloudplatform/gaia/spider/layer',
         zip_safe=False,
-        install_requires=[
-            "easylog == 1.0.0.dev4",
-            "boto3 == 1.14.20"
-        ],
+        install_requires=install_requires,
         dependency_links=[
             "http://10.124.106.125:9011/simple"
         ],
