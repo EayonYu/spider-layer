@@ -11,6 +11,6 @@ before_script:
 deploy_private:
   stage: deploy
   script:
-    - twine upload --username . --password . dist/* --repository-url http://10.124.106.125:9011/
+    - twine upload --username hongkang2 --password He8JGUiK dist/* --repository-url http://52.81.42.99:31187/
   only:
     - tags
