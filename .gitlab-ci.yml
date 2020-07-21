@@ -14,7 +14,9 @@ deploy_private:
   script:
     - twine upload --username hongkang2 --password He8JGUiK dist/* --repository-url http://52.81.42.99:31187/
   only:
-    - tagsdeploy_after:
+    - tags
+
+deploy_after:
   stage: deploy_after
   script:
     - echo ${CI_RUNNER_TAGS} 
