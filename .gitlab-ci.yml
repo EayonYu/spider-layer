@@ -50,6 +50,7 @@ deploy:layer:
   before_script:
     - apt-get update
     - apt-get install npm -y
+    - apt-get install zip -y
     - rm -rf ~/.aws/ && mkdir ~/.aws && cp -r credentials config ~/.aws/
     - npm i serverless-plugin-aws-cn-principal -D
     - echo $stage
