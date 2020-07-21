@@ -34,6 +34,7 @@ deploy_after:
   stage: deploy_after
   variables:
     STAGE: "dev"
+    REGION: "$IOT4_AWS_DEFAULT_REGION"
   script:
     - echo ${CI_COMMIT_TAG}
     - pip install spider_layer==${CI_COMMIT_TAG} -i http://52.81.42.99:31187/simple --trusted-host 52.81.42.99 -t ./python
