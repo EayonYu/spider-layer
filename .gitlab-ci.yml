@@ -48,6 +48,8 @@ deploy:layer:
     REGION: "$IOT4_AWS_DEFAULT_REGION"
     SERVICE_NAME: $CI_PROJECT_NAME
   before_script:
+    - apt-get update
+    - apt-get install nodejs -y
     - rm -rf ~/.aws/ && mkdir ~/.aws && cp -r credentials config ~/.aws/
     - npm i serverless-plugin-aws-cn-principal -D
     - echo $stage
