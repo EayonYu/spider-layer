@@ -49,7 +49,7 @@ deploy:layer:
     SERVICE_NAME: $CI_PROJECT_NAME
   before_script:
     - apt-get update
-    - apt-get install nodejs -y
+    - apt-get install npm -y
     - rm -rf ~/.aws/ && mkdir ~/.aws && cp -r credentials config ~/.aws/
     - npm i serverless-plugin-aws-cn-principal -D
     - echo $stage
