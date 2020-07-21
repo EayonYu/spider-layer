@@ -1,2 +1,2 @@
-easylog == 1.0.0.dev6
+easylog == 1.0.0.dev7
 boto3 == 1.14.20
