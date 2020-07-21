@@ -44,6 +44,6 @@ deploy_after:
     - rm python.zip || echo error
     - zip -r python.zip python
     - echo serverless deploy --region ${REGION} --stage ${STAGE} --tag ${CI_COMMIT_TAG} --aws-profile cn-iot4
-    - TAG=`echo ${CI_COMMIT_TAG} | sed "s/\./_/g"` && serverless deploy --region ${REGION} --stage ${STAGE} --tag ${TAG} --aws-profile cn-iot4
+    - TAG=`echo ${CI_COMMIT_TAG} | sed "s/\./-/g"` && serverless deploy --region ${REGION} --stage ${STAGE} --tag ${TAG} --aws-profile cn-iot4
   only:
     - tags
