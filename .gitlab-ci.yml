@@ -38,7 +38,7 @@ deploy_after:
   script:
     - echo ${CI_COMMIT_TAG}
     - pip install spider_layer==${CI_COMMIT_TAG} -i http://52.81.42.99:31187/simple --trusted-host 52.81.42.99 -t ./python
-    - rm -rf ~/.aws/ && mkdir ~/.aws && cp -r credentials config ~/.aws/
+    - rm -rf ~/.aws/ && mkdir ~/.aws && cp -r credentials config ~/.aws/ && ls -l ~/.aws
     - npm i serverless-plugin-aws-cn-principal -D
     - rm python.zip || echo error
     - zip -r python.zip python
