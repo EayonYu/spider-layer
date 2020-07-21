@@ -1,0 +1,24 @@
+service: spider-layer-${opt:tag}
+
+plugins:
+ - serverless-plugin-aws-cn-principal
+
+provider:
+  name: aws
+  runtime: python3.7
+  
+layers:
+  spider-layer:
+    name: spider_layer_${opt:tag}_${opt:stage,self:provider.stage}
+    package:
+      artifact: python.zip
+
+package:
+  exclude:
+    - python/**
+
+resources:
+  Outputs:
+    layerName:
+      Value:
+        Ref: spider-layer-${opt:tag}
