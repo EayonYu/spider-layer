@@ -1,5 +1,4 @@
 service: gaia-spider-layer-${opt:tag}
-
 plugins:
  - serverless-plugin-aws-cn-principal
 
