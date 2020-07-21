@@ -19,7 +19,7 @@ deploy_private:
 deploy_after:
   stage: deploy_after
   script:
-    - echo ${CI_RUNNER_TAGS} 
-    - pip install spider_layer==${CI_RUNNER_TAGS} -i http://52.81.42.99:31187/simple --trusted-host 52.81.42.99 -t ./python
+    - echo ${CI_COMMIT_TAG}
+    - pip install spider_layer==${CI_COMMIT_TAG} -i http://52.81.42.99:31187/simple --trusted-host 52.81.42.99 -t ./python
   only:
     - tags
