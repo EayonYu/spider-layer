@@ -2,6 +2,7 @@ image: "python:3.7"
 
 stages:
   - deploy
+  - deploy_after
 
 before_script:
    - pip install wheel
@@ -12,5 +13,13 @@ deploy_private:
   stage: deploy
   script:
     - twine upload --username . --password . dist/* --repository-url http://10.124.106.125:9011/
+  only:
+    - tags
+
+deploy_after:
+  stage: deploy_after
+  script:
+    - echo ${CI_RUNNER_TAGS} 
+    - pip install spider_layer==${CI_RUNNER_TAGS} -i http://52.81.42.99:31187/simple --trusted-host 52.81.42.99 -t ./python
   only:
     - tags
