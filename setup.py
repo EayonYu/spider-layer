@@ -36,7 +36,7 @@ if version:
         dependency_links=[
             "http://52.81.42.99:31187/simple"
         ],
-        python_requires='==3.7',
+        python_requires='>=3.7, <=3.8',
         classifiers=[
             'Development Status :: 5 - Production/Stable',
             'Intended Audience :: Developers',
