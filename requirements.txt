@@ -1,2 +1,3 @@
+requests == 2.18.1
 easylog == 1.0.0.dev7
 boto3 == 1.14.20
