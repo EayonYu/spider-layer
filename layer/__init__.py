@@ -1,12 +1,11 @@
-name = 'spider'
+from .aws import AWS
+from .config import Env, Config
 
 
-import logging
-import sys
-logging.basicConfig(stream=sys.stdout, level=logging.DEBUG)
+class Layer:
+    def __init__(self, env: Env):
+        self.env = env
+        self.aws = AWS()
 
-from easylog import get_logger
+        self.config = Config(self.env, self.aws)
 
-
-logger = get_logger()
-logger.info().msg("websocket layer")
