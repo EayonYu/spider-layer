@@ -1,14 +1,5 @@
-from enum import Enum, unique
-
 from .aws import AWS
-
-
-@unique
-class Env(Enum):
-    LOCAL = 'local'
-    DEV = 'dev'
-    TEST = 'test'
-    PROD = 'prod'
+from .env import Env
 
 
 class ServiceProxy:
@@ -40,6 +31,6 @@ class Service:
 
 class Config:
     def __init__(self, env: Env, aws: AWS):
-        self.env = env
+        self._env = env
         self._aws = aws
-        self.service = Service(self.env, self._aws)
+        self.service = Service(self._env, self._aws)

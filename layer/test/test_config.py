@@ -16,13 +16,13 @@ class TestConfig(unittest.TestCase):
         self.assertRaises(ValueError, lambda: config.Env(None))
 
     def test_config(self):
-        c = config.Config(config.Env('local'), AWS())
-        self.assertEqual(c.env, config.Env.LOCAL)
-        self.assertEqual(c.env.value, 'local')
+        env = config.Env('local')
+        _ = config.Config(env, AWS(env))
 
     @unittest.skip("require env")
     def test_config_service_proxy_endpoint(self):
-        c = config.Config(config.Env('dev'), AWS())
+        env = config.Env('dev')
+        c = config.Config(env, AWS(env))
         print(c.service.proxy.endpoint)
 
 

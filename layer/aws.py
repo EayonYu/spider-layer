@@ -1,8 +1,11 @@
 import boto3
 
+from .env import Env
+
 
 class AWS:
-    def __init__(self):
+    def __init__(self, env: Env):
+        self._env = env
         self._ssm_client = None
         self._kinesis_client = None
 

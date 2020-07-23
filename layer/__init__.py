@@ -5,7 +5,6 @@ from .config import Env, Config
 class Layer:
     def __init__(self, env: Env):
         self.env = env
-        self.aws = AWS()
+        self.aws = AWS(self.env)
 
         self.config = Config(self.env, self.aws)
-
