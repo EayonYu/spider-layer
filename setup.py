@@ -29,7 +29,7 @@ if version:
         author='jacob.hong',
         author_email='jacob.hong@tcl.com',
         license='MIT',
-        packages=find_packages,
+        packages=find_packages(),
         url='http://10.124.106.120:18080/cloudplatform/gaia/spider/layer',
         zip_safe=False,
         install_requires=install_requires,
