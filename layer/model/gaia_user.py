@@ -4,7 +4,7 @@ from ._base import CommonModel
 from sqlalchemy import Column, String, Text, Boolean, UniqueConstraint
 
 
-class PartnerUserModel(BaseModel, CommonModel):
+class GaiaUserModel(BaseModel, CommonModel):
     __tablename__ = 'gaia_user'
 
     platform_user_id = Column('platform_user_id', String(63), nullable=False)
