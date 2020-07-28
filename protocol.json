@@ -1,0 +1,16 @@
+{
+  "me":{
+    "name":"spider_layer",
+    "is_service":false
+  },
+  "source":"s3://protocols/gaia",
+  "local":"./layer/protocol",
+  "requirements":[
+    {
+      "service":"mirror",
+      "version":"0.0.3",
+      "lan":"python",
+      "target":"mirror"
+    }
+  ]
+}

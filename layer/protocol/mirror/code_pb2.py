@@ -18,8 +18,8 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   name='code.proto',
   package='mirror',
   syntax='proto3',
-  serialized_options=b'\n(com.tcl.cloud.proto.partnermirror.mirrorP\001\210\001\001',
-  serialized_pb=b'\n\ncode.proto\x12\x06mirror*_\n\x04\x43ode\x12\x0b\n\x07UNKNOWN\x10\x00\x12\x0c\n\x07SUCCESS\x10\xc8\x01\x12\x10\n\x0b\x42\x41\x44_REQUEST\x10\x90\x03\x12\x0e\n\tNOT_FOUND\x10\x94\x03\x12\x1a\n\x15INTERNAL_SERVER_ERROR\x10\xf4\x03\x42/\n(com.tcl.cloud.proto.partnermirror.mirrorP\x01\x88\x01\x01\x62\x06proto3'
+  serialized_options=b'\n(com.tcl.cloud.proto.partnermirror.mirror',
+  serialized_pb=b'\n\ncode.proto\x12\x06mirror*_\n\x04\x43ode\x12\x0b\n\x07UNKNOWN\x10\x00\x12\x0c\n\x07SUCCESS\x10\xc8\x01\x12\x10\n\x0b\x42\x41\x44_REQUEST\x10\x90\x03\x12\x0e\n\tNOT_FOUND\x10\x94\x03\x12\x1a\n\x15INTERNAL_SERVER_ERROR\x10\xf4\x03\x42*\n(com.tcl.cloud.proto.partnermirror.mirrorb\x06proto3'
 )
 
 _CODE = _descriptor.EnumDescriptor(

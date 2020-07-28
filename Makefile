@@ -1,11 +1,10 @@
-ifndef version
-	version=latest
+ifndef action
+	action=pull
 endif
 
-all: pull-proto
+default:
+	echo "idle"
 
-pull-proto:
-	[ ! $(lan) ] || aws s3 sync --delete s3://protocols/gaia/mirror/$(version)/$(lan) ./layer/protocol/mirror
-	cd ./layer/protocol/mirror; touch __init__.py
-
-.PHONY: pull-proto
+protocol:
+	[ ! $(action) == "pull" ] || python .protocol.py -p
+	[ ! $(action) == "clean" ] || python .protocol.py -c

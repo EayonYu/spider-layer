@@ -17,8 +17,8 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   name='ping.proto',
   package='mirror',
   syntax='proto3',
-  serialized_options=b'\n(com.tcl.cloud.proto.partnermirror.mirrorP\001\210\001\001',
-  serialized_pb=b'\n\nping.proto\x12\x06mirror\"\r\n\x0bPingRequest\"\x1c\n\x0cPingResponse\x12\x0c\n\x04pong\x18\x01 \x01(\x08\x42/\n(com.tcl.cloud.proto.partnermirror.mirrorP\x01\x88\x01\x01\x62\x06proto3'
+  serialized_options=b'\n(com.tcl.cloud.proto.partnermirror.mirror',
+  serialized_pb=b'\n\nping.proto\x12\x06mirror\"\r\n\x0bPingRequest\"\x1c\n\x0cPingResponse\x12\x0c\n\x04pong\x18\x01 \x01(\x08\x42*\n(com.tcl.cloud.proto.partnermirror.mirrorb\x06proto3'
 )
 
 
