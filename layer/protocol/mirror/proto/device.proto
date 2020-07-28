@@ -1,0 +1,90 @@
+syntax = "proto3";
+
+option java_package = "com.tcl.cloud.proto.partnermirror.mirror";
+
+package mirror;
+
+
+message UserDevice {
+    int32 id = 1;
+
+    string partner_name = 2;
+    string partner_uuid = 3;
+
+    int32 origin_user_id = 4;
+    int32 origin_device_id = 5;
+    string nick = 6;
+    int32 available = 7;
+    int32 type = 8;
+    string body = 9;
+
+    string created_at = 10;
+    string updated_at = 11;
+}
+
+message GetDevicesByPartnerUserRequest {
+    string partner_uuid = 1;
+    string partner_user_id = 2;
+}
+
+message GetDevicesByPartnerUserResponse {
+    int32 code = 1;
+    string message = 2;
+    repeated UserDevice data = 4;
+}
+
+message GetDevicesRangeData {
+    int32 start = 1;
+    int32 end = 2;
+}
+
+message GetDevicesRangeRequest {
+    string partner_uuid = 1;
+}
+
+message GetDevicesRangeResponse {
+    int32 code = 1;
+    string message = 2;
+    GetDevicesRangeData data = 3;
+}
+
+message GetUserDevicesRangeData {
+    int32 start = 1;
+    int32 end = 2;
+}
+
+message GetUserDevicesRangeRequest {
+    string partner_uuid = 1;
+}
+
+message GetUserDevicesRangeResponse {
+    int32 code = 1;
+    string message = 2;
+    GetUserDevicesRangeData data = 3;
+}
+
+message Device {
+    int32 id = 1;
+    string partner_name = 2;
+    string partner_uuid = 3;
+    int32 origin_device_id = 4;
+    string nick_name = 5;
+    string category = 6;
+    string device_type = 7;
+    string head_url = 8;
+    string mac = 9;
+    string body = 10;
+    string created_at = 11;
+    string updated_at = 12;
+}
+
+message GetPartnerDevicesByIdsRequest {
+    string partner_uuid = 1;
+    repeated int32 device_ids = 2;
+}
+
+message GetPartnerDevicesByIdsResponse {
+    int32 code = 1;
+    string message = 2;
+    repeated Device data = 3;
+}

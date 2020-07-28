@@ -10,7 +10,13 @@
       "service":"mirror",
       "version":"0.0.3",
       "lan":"python",
-      "target":"mirror"
+      "target":"mirror/python"
+    },
+    {
+      "service":"mirror",
+      "version":"0.0.3",
+      "lan":"proto",
+      "target":"mirror/proto"
     }
   ]
 }

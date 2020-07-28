@@ -6,7 +6,7 @@ from sqlalchemy.orm import Session
 
 from .aws import AWS
 from .config import Env, Config
-from .protocol.mirror import mirror_service_pb2_grpc
+from .protocol.mirror.python import mirror_service_pb2_grpc
 
 
 class Layer:

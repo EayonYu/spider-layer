@@ -2,7 +2,7 @@ import unittest
 
 from layer import Layer
 from layer import config
-from layer.protocol.mirror.ping_pb2 import PingRequest
+from layer.protocol.mirror.python.ping_pb2 import PingRequest
 
 
 class TestGrpcMirror(unittest.TestCase):

@@ -1,0 +1,59 @@
+syntax = "proto3";
+
+option java_package = "com.tcl.cloud.proto.partnermirror.mirror";
+
+package mirror;
+
+
+message User {
+    int32 id = 1;
+
+    string partner_name = 2;
+    string partner_uuid = 3;
+
+    int32 origin_user_id = 4;
+    string nick_name = 5;
+    string category = 6;
+    string email = 7;
+    string mobile_phone = 8;
+    string body = 9;
+
+    string created_at = 10;
+    string updated_at = 11;
+}
+
+message UsersPageData {
+    int32 total = 1;
+    int32 page = 2;
+    int32 size = 3;
+    repeated User users = 4;
+}
+
+message GetUserListRequest {
+    string partner_uuid = 1;
+    repeated string search_by = 2;
+    repeated string sort_by = 3;
+    int32 page = 4;
+    int32 size = 5;
+}
+
+message GetUserListResponse {
+    int32 code = 1;
+    string message = 2;
+    UsersPageData data = 3;
+}
+
+message GetUsersRangeData {
+    int32 start = 1;
+    int32 end = 2;
+}
+
+message GetUsersRangeRequest {
+    string partner_uuid = 1;
+}
+
+message GetUsersRangeResponse {
+    int32 code = 1;
+    string message = 2;
+    GetUsersRangeData data = 3;
+}

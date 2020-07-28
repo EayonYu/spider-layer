@@ -1,0 +1,58 @@
+syntax = "proto3";
+
+option java_package = "com.tcl.cloud.proto.partnermirror.mirror";
+
+package mirror;
+
+import "google/api/annotations.proto";
+import "google/protobuf/any.proto";
+
+import "ping.proto";
+import "user.proto";
+import "device.proto";
+
+
+service Mirror {
+
+    rpc Ping(PingRequest) returns (PingResponse) {
+        option (google.api.http) = {
+            get: "/mirror/ping"
+        };
+    };
+
+    rpc GetUserList(GetUserListRequest) returns (GetUserListResponse) {
+        option (google.api.http) = {
+            get: "/mirror/users"
+        };
+    };
+
+    rpc GetDevicesByPartnerUser(GetDevicesByPartnerUserRequest) returns (GetDevicesByPartnerUserResponse) {
+        option (google.api.http) = {
+            get: "/mirror/partner/{partner_uuid}/user/{partner_user_id}/devices"
+        };
+    };
+
+    rpc GetPartnerDevicesByIds(GetPartnerDevicesByIdsRequest) returns (GetPartnerDevicesByIdsResponse) {
+        option (google.api.http) = {
+            get: "/mirror/partner/{partner_uuid}/devices_by_ids"
+        };
+    }
+
+    rpc GetUsersRange(GetUsersRangeRequest) returns (GetUsersRangeResponse) {
+        option (google.api.http) = {
+            get: "/mirror/partner/{partner_uuid}/users_range"
+        };
+    }
+
+    rpc GetDevicesRange(GetDevicesRangeRequest) returns (GetDevicesRangeResponse) {
+        option (google.api.http) = {
+            get: "/mirror/partner/{partner_uuid}/devices_range"
+        };
+    }
+
+    rpc GetUserDevicesRange(GetUserDevicesRangeRequest) returns (GetUserDevicesRangeResponse) {
+        option (google.api.http) = {
+            get: "/mirror/partner/{partner_uuid}/user_devices_range"
+        };
+    }
+}

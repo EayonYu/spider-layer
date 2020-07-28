@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+option java_package = "com.tcl.cloud.proto.partnermirror.mirror";
+
+package mirror;
+
+
+enum Code {
+    UNKNOWN = 0;
+    SUCCESS = 200;
+    BAD_REQUEST = 400;
+    NOT_FOUND = 404;
+    INTERNAL_SERVER_ERROR = 500;
+}

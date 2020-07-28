@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+option java_package = "com.tcl.cloud.proto.partnermirror.mirror";
+
+package mirror;
+
+
+message PingRequest {
+
+}
+
+message PingResponse {
+    bool pong = 1;
+}
