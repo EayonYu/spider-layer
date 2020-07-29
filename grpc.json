@@ -1,0 +1,34 @@
+{
+  "context": "./layer/grpc",
+  "source": {
+    "provider": "aws",
+    "service": "s3",
+    "bucket": "s3://protocols/gaia"
+  },
+  "me": {
+    "name": "spider_layer",
+    "path": "./me",
+    "service": {
+      "version": "todo",
+      "proto": "./proto",
+      "gateway": "./todo"
+    }
+  },
+  "requirements": {
+    "path": "./requirements",
+    "services": [
+      {
+        "service": "mirror",
+        "version": "0.0.3",
+        "lan": "python",
+        "target": "./mirror/python"
+      },
+      {
+        "service": "mirror",
+        "version": "0.0.3",
+        "lan": "proto",
+        "target": "./mirror/proto"
+      }
+    ]
+  }
+}

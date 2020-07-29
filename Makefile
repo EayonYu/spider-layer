@@ -6,5 +6,6 @@ default:
 	echo "idle"
 
 protocol:
-	[ ! $(action) == "pull" ] || python .protocol.py -p
-	[ ! $(action) == "clean" ] || python .protocol.py -c
+	[ ! $(action) == "pull" ] || python .grpc.py --pull
+	[ ! $(action) == "clean" ] || python .grpc.py --clean
+	[ ! $(action) == "compile" ] || python .grpc.py --compile

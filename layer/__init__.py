@@ -1,4 +1,4 @@
-import grpc
+import grpc as grpc_tool
 
 from sqlalchemy import create_engine
 from sqlalchemy.orm.session import sessionmaker
@@ -6,7 +6,7 @@ from sqlalchemy.orm import Session
 
 from .aws import AWS
 from .config import Env, Config
-from .protocol.mirror.python import mirror_service_pb2_grpc
+from .grpc.requirements.mirror.python import mirror_service_pb2_grpc
 
 
 class Layer:
@@ -28,6 +28,6 @@ class Layer:
 
     def grpc_mirror_client(self):
         if not self._grpc_mirror_client:
-            channel = grpc.insecure_channel(self.config.service.mirror.endpoint)
+            channel = grpc_tool.insecure_channel(self.config.service.mirror.endpoint)
             self._grpc_mirror_client = mirror_service_pb2_grpc.MirrorStub(channel)
         return self._grpc_mirror_client
