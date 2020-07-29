@@ -13,6 +13,7 @@ class PartnerDeviceModel(BaseModel, CommonModel):
     update_required = Column('update_required', Boolean, nullable=False, default=False)
     immutable_identity = Column('immutable_identity', String(255), nullable=False)
     device_info = Column('device_info', Text)
+    primary_device = Column('primary_device', Boolean, nullable=False)
     mapping_mode = Column('mapping_mode', String(63))
 
     # TODO foreign key
