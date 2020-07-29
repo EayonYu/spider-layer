@@ -11,8 +11,8 @@ from google.protobuf import symbol_database as _symbol_database
 _sym_db = _symbol_database.Default()
 
 
-from google.api from . import annotations_pb2 as google_dot_api_dot_annotations__pb2
-from google.protobuf from . import any_pb2 as google_dot_protobuf_dot_any__pb2
+from google.api import annotations_pb2 as google_dot_api_dot_annotations__pb2
+from google.protobuf import any_pb2 as google_dot_protobuf_dot_any__pb2
 from . import ping_pb2 as ping__pb2
 from . import user_pb2 as user__pb2
 from . import device_pb2 as device__pb2

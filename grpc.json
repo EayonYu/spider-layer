@@ -7,25 +7,20 @@
   },
   "me": {
     "name": "spider_layer",
-    "path": "./me",
-    "service": {
-      "version": "todo",
-      "proto": "./proto",
-      "gateway": "./todo"
-    }
+    "path": "./me"
   },
   "requirements": {
     "path": "./requirements",
     "services": [
       {
         "service": "mirror",
-        "version": "0.0.3",
+        "version": "0.0.4.dev1",
         "lan": "python",
         "target": "./mirror/python"
       },
       {
         "service": "mirror",
-        "version": "0.0.3",
+        "version": "0.0.4.dev1",
         "lan": "proto",
         "target": "./mirror/proto"
       }
