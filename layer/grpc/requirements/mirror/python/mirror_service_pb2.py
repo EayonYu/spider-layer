@@ -22,8 +22,8 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   name='mirror_service.proto',
   package='mirror',
   syntax='proto3',
-  serialized_options=b'\n(com.tcl.cloud.proto.partnermirror.mirror',
-  serialized_pb=b'\n\x14mirror_service.proto\x12\x06mirror\x1a\x1cgoogle/api/annotations.proto\x1a\x19google/protobuf/any.proto\x1a\nping.proto\x1a\nuser.proto\x1a\x0c\x64\x65vice.proto2\xaf\x07\n\x06Mirror\x12G\n\x04Ping\x12\x13.mirror.PingRequest\x1a\x14.mirror.PingResponse\"\x14\x82\xd3\xe4\x93\x02\x0e\x12\x0c/mirror/ping\x12]\n\x0bGetUserList\x12\x1a.mirror.GetUserListRequest\x1a\x1b.mirror.GetUserListResponse\"\x15\x82\xd3\xe4\x93\x02\x0f\x12\r/mirror/users\x12\xb1\x01\n\x17GetDevicesByPartnerUser\x12&.mirror.GetDevicesByPartnerUserRequest\x1a\'.mirror.GetDevicesByPartnerUserResponse\"E\x82\xd3\xe4\x93\x02?\x12=/mirror/partner/{partner_uuid}/user/{partner_user_id}/devices\x12\x9e\x01\n\x16GetPartnerDevicesByIds\x12%.mirror.GetPartnerDevicesByIdsRequest\x1a&.mirror.GetPartnerDevicesByIdsResponse\"5\x82\xd3\xe4\x93\x02/\x12-/mirror/partner/{partner_uuid}/devices_by_ids\x12\x80\x01\n\rGetUsersRange\x12\x1c.mirror.GetUsersRangeRequest\x1a\x1d.mirror.GetUsersRangeResponse\"2\x82\xd3\xe4\x93\x02,\x12*/mirror/partner/{partner_uuid}/users_range\x12\x88\x01\n\x0fGetDevicesRange\x12\x1e.mirror.GetDevicesRangeRequest\x1a\x1f.mirror.GetDevicesRangeResponse\"4\x82\xd3\xe4\x93\x02.\x12,/mirror/partner/{partner_uuid}/devices_range\x12\x99\x01\n\x13GetUserDevicesRange\x12\".mirror.GetUserDevicesRangeRequest\x1a#.mirror.GetUserDevicesRangeResponse\"9\x82\xd3\xe4\x93\x02\x33\x12\x31/mirror/partner/{partner_uuid}/user_devices_rangeB*\n(com.tcl.cloud.proto.partnermirror.mirrorb\x06proto3'
+  serialized_options=None,
+  serialized_pb=b'\n\x14mirror_service.proto\x12\x06mirror\x1a\x1cgoogle/api/annotations.proto\x1a\x19google/protobuf/any.proto\x1a\nping.proto\x1a\nuser.proto\x1a\x0c\x64\x65vice.proto2\xaf\x07\n\x06Mirror\x12G\n\x04Ping\x12\x13.mirror.PingRequest\x1a\x14.mirror.PingResponse\"\x14\x82\xd3\xe4\x93\x02\x0e\x12\x0c/mirror/ping\x12]\n\x0bGetUserList\x12\x1a.mirror.GetUserListRequest\x1a\x1b.mirror.GetUserListResponse\"\x15\x82\xd3\xe4\x93\x02\x0f\x12\r/mirror/users\x12\xb1\x01\n\x17GetDevicesByPartnerUser\x12&.mirror.GetDevicesByPartnerUserRequest\x1a\'.mirror.GetDevicesByPartnerUserResponse\"E\x82\xd3\xe4\x93\x02?\x12=/mirror/partner/{partner_uuid}/user/{partner_user_id}/devices\x12\x9e\x01\n\x16GetPartnerDevicesByIds\x12%.mirror.GetPartnerDevicesByIdsRequest\x1a&.mirror.GetPartnerDevicesByIdsResponse\"5\x82\xd3\xe4\x93\x02/\x12-/mirror/partner/{partner_uuid}/devices_by_ids\x12\x80\x01\n\rGetUsersRange\x12\x1c.mirror.GetUsersRangeRequest\x1a\x1d.mirror.GetUsersRangeResponse\"2\x82\xd3\xe4\x93\x02,\x12*/mirror/partner/{partner_uuid}/users_range\x12\x88\x01\n\x0fGetDevicesRange\x12\x1e.mirror.GetDevicesRangeRequest\x1a\x1f.mirror.GetDevicesRangeResponse\"4\x82\xd3\xe4\x93\x02.\x12,/mirror/partner/{partner_uuid}/devices_range\x12\x99\x01\n\x13GetUserDevicesRange\x12\".mirror.GetUserDevicesRangeRequest\x1a#.mirror.GetUserDevicesRangeResponse\"9\x82\xd3\xe4\x93\x02\x33\x12\x31/mirror/partner/{partner_uuid}/user_devices_rangeb\x06proto3'
   ,
   dependencies=[google_dot_api_dot_annotations__pb2.DESCRIPTOR,google_dot_protobuf_dot_any__pb2.DESCRIPTOR,ping__pb2.DESCRIPTOR,user__pb2.DESCRIPTOR,device__pb2.DESCRIPTOR,])
 
@@ -32,7 +32,6 @@ DESCRIPTOR = _descriptor.FileDescriptor(
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 
-DESCRIPTOR._options = None
 
 _MIRROR = _descriptor.ServiceDescriptor(
   name='Mirror',
