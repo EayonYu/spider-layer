@@ -284,6 +284,16 @@ def compile_proto():
             subprocess.call(['rm', '-rf', abs_me_python_path])
             subprocess.call(['mkdir', abs_me_python_path])
             # compile
+            cmd = 'cd {abs_me_path}; python -m grpc_tools.protoc ' \
+                  '-I {me_service_proto} -I {google_api_path} ' \
+                  '--python_out=./python --grpc_python_out=./python ' \
+                  '{me_service_proto}/*.proto; ' \
+                  'cd ./python; ' \
+                  'sed -i "" -E "s/^import (.+_pb2.*)/from . import \\1/g" *_pb2*.py;'\
+                .format(abs_me_path=abs_me_path,
+                        me_service_proto=me_service_proto,
+                        google_api_path=google_api_path)
+            '''
             cmd = f'cd {abs_me_path}; ' \
                   f'python -m grpc_tools.protoc ' \
                   f'-I {me_service_proto} ' \
@@ -293,6 +303,7 @@ def compile_proto():
                   f'{me_service_proto}/*.proto; ' \
                   f'cd ./python; ' \
                   f'sed -i "" -E "s/^import (.+_pb2.*)/from . import \\1/g" *_pb2*.py;'
+            '''
             print(cmd)
             os.system(cmd)
 
@@ -301,12 +312,23 @@ def compile_proto():
             subprocess.call(['rm', '-rf', abs_me_go_path])
             subprocess.call(['mkdir', abs_me_go_path])
             # compile
+            cmd = 'cd {abs_me_path}; ' \
+                  'protoc ' \
+                  '-I {me_service_proto} ' \
+                  '-I {google_api_path} ' \
+                  '--go_out=plugins=grpc:./go ' \
+                  '{me_service_proto}/*.proto; '\
+                .format(abs_me_path=abs_me_path,
+                        me_service_proto=me_service_proto,
+                        google_api_path=google_api_path)
+            '''
             cmd = f'cd {abs_me_path}; ' \
                   f'protoc ' \
                   f'-I {me_service_proto} ' \
                   f'-I {google_api_path} ' \
                   f'--go_out=plugins=grpc:./go ' \
                   f'{me_service_proto}/*.proto; '
+            '''
             print(cmd)
             os.system(cmd)
 
@@ -315,6 +337,18 @@ def compile_proto():
             subprocess.call(['rm', '-rf', abs_me_java_path])
             subprocess.call(['mkdir', abs_me_java_path])
             # compile
+            cmd = 'cd {abs_me_path}; ' \
+                  'protoc --plugin=protoc-gen-grpc-java={protoc_java_plugin} ' \
+                  '-I {me_service_proto} ' \
+                  '-I {google_api_path} ' \
+                  '--grpc-java_out=./java ' \
+                  '--java_out=./java ' \
+                  '{me_service_proto}/*.proto; '\
+                .format(abs_me_path=abs_me_path,
+                        me_service_proto=me_service_proto,
+                        protoc_java_plugin=protoc_java_plugin,
+                        google_api_path=google_api_path)
+            '''
             cmd = f'cd {abs_me_path}; ' \
                   f'protoc --plugin=protoc-gen-grpc-java={protoc_java_plugin} ' \
                   f'-I {me_service_proto} ' \
@@ -322,6 +356,7 @@ def compile_proto():
                   f'--grpc-java_out=./java ' \
                   f'--java_out=./java ' \
                   f'{me_service_proto}/*.proto; '
+            '''
             print(cmd)
             os.system(cmd)
 
@@ -330,12 +365,23 @@ def compile_proto():
             subprocess.call(['rm', '-rf', abs_me_swagger_path])
             subprocess.call(['mkdir', abs_me_swagger_path])
             # compile
+            cmd = 'cd {abs_me_path}; ' \
+                  'protoc ' \
+                  '-I {me_service_proto} ' \
+                  '-I {google_api_path} ' \
+                  '--swagger_out=logtostderr=true:./swagger ' \
+                  '{me_service_proto}/*.proto; '\
+                .format(abs_me_path=abs_me_path,
+                        me_service_proto=me_service_proto,
+                        google_api_path=google_api_path)
+            '''
             cmd = f'cd {abs_me_path}; ' \
                   f'protoc ' \
                   f'-I {me_service_proto} ' \
                   f'-I {google_api_path} ' \
                   f'--swagger_out=logtostderr=true:./swagger ' \
                   f'{me_service_proto}/*.proto; '
+            '''
             print(cmd)
             os.system(cmd)
 
@@ -346,17 +392,32 @@ def compile_proto():
                 subprocess.call(['rm', '-rf', abs_me_gateway_path])
                 subprocess.call(['mkdir', abs_me_gateway_path])
                 abs_me_go_files = os.path.abspath(os.path.join(abs_me_go_path, '*'))
-                cmd = f'cp {abs_me_go_files} {abs_me_gateway_path}'
+                cmd = 'cp {abs_me_go_files} {abs_me_gateway_path}'.format(
+                    abs_me_go_files=abs_me_go_files,
+                    abs_me_gateway_path=abs_me_gateway_path
+                )
                 print(cmd)
                 os.system(cmd)
 
                 # compile
+                cmd = 'cd {abs_me_path}; ' \
+                      'protoc ' \
+                      '-I {me_service_proto} ' \
+                      '-I {google_api_path} ' \
+                      '--grpc-gateway_out=logtostderr=true:{abs_me_gateway_path} ' \
+                      '{me_service_proto}/*.proto; '\
+                    .format(abs_me_path=abs_me_path,
+                            me_service_proto=me_service_proto,
+                            google_api_path=google_api_path,
+                            abs_me_gateway_path=abs_me_gateway_path)
+                '''
                 cmd = f'cd {abs_me_path}; ' \
                       f'protoc ' \
                       f'-I {me_service_proto} ' \
                       f'-I {google_api_path} ' \
                       f'--grpc-gateway_out=logtostderr=true:{abs_me_gateway_path} ' \
                       f'{me_service_proto}/*.proto; '
+                '''
                 print(cmd)
                 os.system(cmd)
 
@@ -421,23 +482,43 @@ def push():
             abs_me_java_path = os.path.abspath(os.path.join(abs_me_path, 'java'))
             abs_me_swagger_path = os.path.abspath(os.path.join(abs_me_path, 'swagger'))
 
-            proto_source_path = f'{source_bucket}/{me_name}/{me_service_version}/proto'
+            proto_source_path = '{source_bucket}/{me_name}/{me_service_version}/proto'.format(
+                source_bucket=source_bucket,
+                me_name=me_name,
+                me_service_version=me_service_version
+            )
             subprocess.call(
                 ['aws', 's3', 'sync', '--delete', abs_me_proto_path, proto_source_path]
             )
-            python_source_path = f'{source_bucket}/{me_name}/{me_service_version}/python'
+            python_source_path = '{source_bucket}/{me_name}/{me_service_version}/python'.format(
+                source_bucket=source_bucket,
+                me_name=me_name,
+                me_service_version=me_service_version
+            )
             subprocess.call(
                 ['aws', 's3', 'sync', '--delete', abs_me_python_path, python_source_path]
             )
-            go_source_path = f'{source_bucket}/{me_name}/{me_service_version}/go'
+            go_source_path = '{source_bucket}/{me_name}/{me_service_version}/go'.format(
+                source_bucket=source_bucket,
+                me_name=me_name,
+                me_service_version=me_service_version
+            )
             subprocess.call(
                 ['aws', 's3', 'sync', '--delete', abs_me_go_path, go_source_path]
             )
-            java_source_path = f'{source_bucket}/{me_name}/{me_service_version}/java'
+            java_source_path = '{source_bucket}/{me_name}/{me_service_version}/java'.format(
+                source_bucket=source_bucket,
+                me_name=me_name,
+                me_service_version=me_service_version
+            )
             subprocess.call(
                 ['aws', 's3', 'sync', '--delete', abs_me_java_path, java_source_path]
             )
-            swagger_source_path = f'{source_bucket}/{me_name}/{me_service_version}/swagger'
+            swagger_source_path = '{source_bucket}/{me_name}/{me_service_version}/swagger'.format(
+                source_bucket=source_bucket,
+                me_name=me_name,
+                me_service_version=me_service_version
+            )
             subprocess.call(
                 ['aws', 's3', 'sync', '--delete', abs_me_swagger_path, swagger_source_path]
             )
@@ -459,4 +540,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-
