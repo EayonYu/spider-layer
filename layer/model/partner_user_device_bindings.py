@@ -13,6 +13,7 @@ class PartnerUserDeviceBindings(BaseModel, CommonModel):
     update_required = Column('update_required', Boolean, nullable=False, default=False)
     user_role = Column('user_role', Integer, default=0)
     extra = Column('extra', Text)
+    gaia_user_device_unique_id = Column('gaia_user_device_unique_id', String(63))
 
     __table_args__ = (
         UniqueConstraint('partner_id', 'partner_user_id', 'partner_device_id', name='_three_uc'),
@@ -24,5 +25,7 @@ class PartnerUserDeviceBindings(BaseModel, CommonModel):
             'partner_user_id': self.partner_user_id,
             'partner_device_id': self.partner_device_id,
             'user_role': self.user_role,
+            'update_required': self.update_required,
+            'gaia_user_device_unique_id': self.gaia_user_device_unique_id,
             'extra': self.extra
             }
