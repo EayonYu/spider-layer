@@ -102,7 +102,6 @@ def pull():
                     print('source provider not support')
                     continue
 
-                """
                 # create __init__.py for python packages
                 if lan == 'python':
                     p = target_dir
@@ -114,7 +113,7 @@ def pull():
                             print('create __init__.py file for python package in: ', p)
                             open(init_file, 'a').close()
                         p = os.path.abspath(os.path.dirname(p))
-                """
+
 
 
 def clean():
