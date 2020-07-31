@@ -1,5 +1,5 @@
 PyMySQL == 0.10.0
-requests == 2.18.1
+requests == 2.20.0
 easylog == 1.0.0.dev7
 boto3 == 1.14.20
 nose == 1.3.7
